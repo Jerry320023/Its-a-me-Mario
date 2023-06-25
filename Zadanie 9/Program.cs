@@ -26,14 +26,11 @@ namespace Mario
         //pozycja sluchacza X
         static float listenerPosX = 0.0f;
 
-        //pozycja sluchacza Y
-        static float listenerPosY = 0.0f;
-
         //pozycja sluchacza Z
         static float listenerPosZ = 0.0f;
 
         //glosnosc
-        static float volume = 0.01f;
+        static float volume = 0.05f;
 
         public static void KeyProcessor(IntPtr window, Keys key, int scanCode, InputState state, ModifierKeys mods)
         {
@@ -47,7 +44,7 @@ namespace Mario
                 {
                     if ((ALSourceState)sourcestate == ALSourceState.Paused)
                     {
-                        Console.WriteLine("Gra"); //uruchamia utwor
+                        Console.WriteLine("Odtwarza"); //uruchamia utwor
                         AL.SourcePlay(source);
                     }
                     if ((ALSourceState)sourcestate != ALSourceState.Paused)
@@ -60,38 +57,45 @@ namespace Mario
                 if (key == Keys.Up)
                 {
                     listenerPosZ -= 1f; //przenosi sluchacza do przodu o 1f 
+                    Console.WriteLine("Pozycja przód(-)/tył(+) wynosi: " + listenerPosZ);
                 }
                 else if (key == Keys.Down)
                 {
                     listenerPosZ += 1f; //przenosi sluchacza do tylu o 1f 
+                    Console.WriteLine("Pozycja przód(-)/tył(+) wynosi: " + listenerPosZ);
                 }
                 else if (key == Keys.Left)
                 {
                     listenerPosX -= 1f; //przenosi sluchacza w lewo o 1f 
+                    Console.WriteLine("Pozycja lewo(-)/prawo(+) wynosi: " + listenerPosX);
                 }
                 else if (key == Keys.Right)
                 {
-                    listenerPosX += 1f; //przenosi sluchacza w prawo o 1f 
+                    listenerPosX += 1f; //przenosi sluchacza w prawo o 1f
+                    Console.WriteLine("Pozycja lewo(-)/prawo(+) wynosi: " + listenerPosX);
                 }
 
                 if (key == Keys.NumpadAdd)
                 {
-                    if (volume >= 0.1f) {
-                        Console.WriteLine("Nie radzę");
+                    if (volume >= 0.5f) {
+                        Console.WriteLine("Nie radzę dawać głośniej");
                     }
                     else {
                     volume += 0.01f; //glosnosc wyzej o 0.01f
+                        Console.WriteLine("Głośność +");
                     }
                 }
                 if (key == Keys.NumpadSubtract)
                 {
                     if (volume == 0)
                     {
-                        Console.WriteLine("Dźwięki wyciszono");
+                        Console.WriteLine("Dźwięk wyciszony");
+                        
                     }
                     else
                     {
                         volume -= 0.01f; //glosnosc wyzej o 0.01f
+                        Console.WriteLine("Głośność -");
                     }
                 }
 
@@ -274,7 +278,7 @@ namespace Mario
 
         public static void Main(string[] args)
         {
-
+           
             Glfw.Init();
 
             // Tworzenie okna GLFW
@@ -325,14 +329,15 @@ namespace Mario
 
             while (!Glfw.WindowShouldClose(window))
             {
+                // Ustawienie poziomu głośności słuchacza
+                AL.Listener(ALListenerf.Gain, volume);
+
+                // Aktualizacja pozycji słuchacza dźwięku
+                AL.Listener(ALListener3f.Position, listenerPosX, 0f, listenerPosZ);
+
                 // Pobieranie i obsługa zdarzeń okna
                 Glfw.PollEvents();
 
-                // Aktualizacja pozycji słuchacza dźwięku
-                AL.Listener(ALListener3f.Position, listenerPosX, listenerPosY, listenerPosZ);
-
-                // Ustawienie poziomu głośności słuchacza
-                AL.Listener(ALListenerf.Gain, volume);
             }
 
             // Zwolnienie zasobów dźwiękowych
