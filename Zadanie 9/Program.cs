@@ -5,7 +5,7 @@ using OpenTK.Graphics.OpenGL4;
 using OpenTK.Audio.OpenAL;
 using System.Threading;
 
-namespace PMLabs
+namespace Mario
 {
     public class BC : IBindingsContext
     {
@@ -75,65 +75,65 @@ namespace PMLabs
             
             float[] melody = {
 
-E5, E5, 0, E5, 0,
-C5, E5, 0, G5, 0, 0, 0, G4, 0, 0, 0,
+            E5, E5, 0, E5, 0,
+            C5, E5, 0, G5, 0, 0, 0, G4, 0, 0, 0,
 
-C5, 0, 0, G4, 0, 0, E4, 0, 0,
-A4, 0, B4, 0, As4, A4, 0,
-G4, E5, 0, G5, A5, 0,
-F5, G5, 0, E5, 0, C5, D5, B4, 0, 0,
+            C5, 0, 0, G4, 0, 0, E4, 0, 0,
+            A4, 0, B4, 0, As4, A4, 0,
+            G4, E5, 0, G5, A5, 0,
+            F5, G5, 0, E5, 0, C5, D5, B4, 0, 0,
 
-C5, 0, 0, G4, 0, 0, E4, 0, 0,
-A4, 0, B4, 0, As4, A4, 0,
-G4, E5, 0, G5, A5, 0,
-F5, G5, 0, E5, 0, C5, D5, B4, 0, 0,
+            C5, 0, 0, G4, 0, 0, E4, 0, 0,
+            A4, 0, B4, 0, As4, A4, 0,
+            G4, E5, 0, G5, A5, 0,
+            F5, G5, 0, E5, 0, C5, D5, B4, 0, 0,
 
-G5,Fs5,F5,D5,E5, 0,
-G4,A4,C5,0,
-A4,C5,D5,0,0,
-G5,Fs5,F5,D5,E5,0,
-C6,C6,C6,0,0,0,
+            G5,Fs5,F5,D5,E5, 0,
+            G4,A4,C5,0,
+            A4,C5,D5,0,0,
+            G5,Fs5,F5,D5,E5,0,
+            C6,C6,C6,0,0,0,
 
-G5, Fs5, F5, D5, E5, 0,
-G4, A4, C5, 0,
-A4, C5, D5, 0, 0,
-Ds5, 0, 0, D5, 0, 0, C5,0,0,0,0,
+            G5, Fs5, F5, D5, E5, 0,
+            G4, A4, C5, 0,
+            A4, C5, D5, 0, 0,
+            Ds5, 0, 0, D5, 0, 0, C5,0,0,0,0,
 
-C5, C5, C5, 0,
-C5, D5, E5, C5, A4, G4, 0,0,0,
-C5, C5, C5, 0,
-C5, D5, E5, 0, 0, 0,
+            C5, C5, C5, 0,
+            C5, D5, E5, C5, A4, G4, 0,0,0,
+            C5, C5, C5, 0,
+            C5, D5, E5, 0, 0, 0,
 
-C5, C5, C5, 0,
-C5, D5, E5, C5, A4, G4, 0, 0,
-E5, E5, E5, 0,
-C5, E5, G5, 0, 0,
-G4, 0, 0, 0,
+            C5, C5, C5, 0,
+            C5, D5, E5, C5, A4, G4, 0, 0,
+            E5, E5, E5, 0,
+            C5, E5, G5, 0, 0,
+            G4, 0, 0, 0,
 
-C5, 0, 0, G4, 0, 0, E4, 0, 0,
-A4, 0, B4, 0, As4, A4, 0,
-G4, E5, 0, G5, A5, 0,
-F5, G5, 0, E5, 0, C5, D5, B4, 0,0,
+            C5, 0, 0, G4, 0, 0, E4, 0, 0,
+            A4, 0, B4, 0, As4, A4, 0,
+            G4, E5, 0, G5, A5, 0,
+            F5, G5, 0, E5, 0, C5, D5, B4, 0,0,
 
-C5, 0, 0, G4, 0, 0, E4, 0, 0,
-A4, 0, B4, 0, As4, A4, 0,
-G4, E5, 0, G5, A5, 0,
-F5, G5, 0, E5, 0, C5, D5, B4, 0,0,
+            C5, 0, 0, G4, 0, 0, E4, 0, 0,
+            A4, 0, B4, 0, As4, A4, 0,
+            G4, E5, 0, G5, A5, 0,
+            F5, G5, 0, E5, 0, C5, D5, B4, 0,0,
 
-E5, C5, G4, 0,
-G4, A4, F5, F5, A4, 0,
-B4, A5, A5, A5, G5, F5,
-E5, C5, A4, G4, 0, 0,
+            E5, C5, G4, 0,
+            G4, A4, F5, F5, A4, 0,
+            B4, A5, A5, A5, G5, F5,
+            E5, C5, A4, G4, 0, 0,
 
-E5, C5, G4, 0,
-G4, A4, F5, F5, A4, 0,
-B4, F5, F5, F5, E5, D5, C5,0,
-G4,0, E4,0, C4,0,0,0,0,
+            E5, C5, G4, 0,
+            G4, A4, F5, F5, A4, 0,
+            B4, F5, F5, F5, E5, D5, C5,0,
+            G4,0, E4,0, C4,0,0,0,0,
 
-C5, G4, E4,0,
-A4, B4, A4,0,
-Gs4,As4, Gs4,0,
-G4, Fs4, G4,0,0,0,
+            C5, G4, E4,0,
+            A4, B4, A4,0,
+            Gs4,As4, Gs4,0,
+            G4, Fs4, G4,0,0,0,
 
  };
 
@@ -194,12 +194,12 @@ G4, Fs4, G4,0,0,0,
         {
 
             Glfw.Init();
-            Window window = Glfw.CreateWindow(500, 500, "OpenAL", GLFW.Monitor.None, Window.None);
+            Window window = Glfw.CreateWindow(500, 500, "Mario", GLFW.Monitor.None, Window.None);
             Glfw.MakeContextCurrent(window);
             Glfw.SetKeyCallback(window, kc);
             InitSound();
             Console.Write(
-        @"
+@"
 
 ____▒▒▒▒▒
 —-▒▒▒▒▒▒▒▒▒
